@@ -51,13 +51,11 @@ let cartEmpty3 = document.querySelector('.text-content3');
 let totalPrice = document.querySelector('.sum');
 let sum = 12500;
 let trash = document.querySelector('.btn-trash');
-let refreshButton = document.getElementById('refresh');
+let refresh = document.querySelector('.refresh');
 let yesBtn = document.querySelector('.yesbtn');
 let noBtn = document.querySelector('.nobtn');
 let loader = document.querySelector('.loader');
 let defaultCount = 0;
-
-
 
 addItemBtn.addEventListener('click', () => {
     defaultCount++;
@@ -83,12 +81,11 @@ addToCartBtn.addEventListener('click', () => {
 })
 
 cartIcon.addEventListener('click', () => {
+    cartEmpty.style.display = "block";
     if (Number(addCartCount.textContent) > 0) {
-        cartEmpty.style.display = "block";
         cartEmpty2.style.display = "block";
         cartEmpty1.style.display = "none";
     } else {
-        cartEmpty.style.display = "block";
         cartEmpty1.style.display = "block";
         cartEmpty2.style.display = "none";
     }
@@ -100,22 +97,17 @@ trash.addEventListener('click', () => {
     cartEmpty3.style.display = "block";
 })
 
-refreshButton.addEventListener("click", function () {
-    refreshButton.textContent = "Loading......"
+refresh.addEventListener("click", function () {
+    refresh.textContent = "Loading....."
     location.reload();
 });
 
 yesBtn.addEventListener("click", function () {
-    setTimeout(function() {
+    setTimeout(function () {
         location.reload();
-    }, 3000); 
+    }, 2000);
     yesBtn.style.display = "none";
     loader.style.display = "block";
-
-    
-    setTimeout(function () {
-        loader.style.display = "none";
-    }, 3000);
 });
 
 noBtn.addEventListener('click', () => {
