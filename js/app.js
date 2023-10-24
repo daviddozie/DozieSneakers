@@ -55,6 +55,7 @@ let refresh = document.querySelector('.refresh');
 let yesBtn = document.querySelector('.yesbtn');
 let noBtn = document.querySelector('.nobtn');
 let loader = document.querySelector('.loader');
+let cancelBtn = document.querySelector('.cancelbtn');
 let defaultCount = 0;
 
 addItemBtn.addEventListener('click', () => {
@@ -82,6 +83,7 @@ addToCartBtn.addEventListener('click', () => {
 
 cartIcon.addEventListener('click', () => {
     cartEmpty.style.display = "block";
+    cartEmpty3.style.display = "none";
     if (Number(addCartCount.textContent) > 0) {
         cartEmpty2.style.display = "block";
         cartEmpty1.style.display = "none";
@@ -101,6 +103,10 @@ refresh.addEventListener("click", function () {
     refresh.textContent = "Loading....."
     location.reload();
 });
+
+cancelBtn.addEventListener('click', () => {
+    cartEmpty.style.display = "none";
+})
 
 yesBtn.addEventListener("click", function () {
     setTimeout(function () {
